@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login — KANNECT</title>
+  <link rel="stylesheet" href="2.css" />
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+      background-attachment: fixed;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="luxury" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,215,0,0.03)"/><circle cx="10" cy="10" r="0.5" fill="rgba(59,130,246,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23luxury)"/></svg>');
+      opacity: 0.4;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .floating-elements {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .floating-element {
+      position: absolute;
+      font-size: 2em;
+      animation: float 6s ease-in-out infinite;
+      opacity: 0.7;
+    }
+
+    .floating-element:nth-child(1) {
+      top: 20%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .floating-element:nth-child(2) {
+      top: 50%;
+      right: 15%;
+      animation-delay: 2s;
+    }
+
+    .floating-element:nth-child(3) {
+      bottom: 20%;
+      left: 20%;
+      animation-delay: 4s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .brand {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 10;
+    }
+
+    .brand svg {
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .app-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5em;
+      font-weight: 700;
+      color: #1e293b;
+      text-decoration: none;
+      background: linear-gradient(135deg, #1e40af, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+      transition: color 0.3s ease;
+    }
+
+    .app-name:hover {
+      color: #3b82f6;
+      text-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+    }
+
+    .tagline {
+      font-size: 0.8em;
+      color: #6b7280;
+      font-weight: 500;
+    }
+
+    .btn {
+      font-weight: 600;
+      padding: 16px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
+      position: relative;
+      overflow: hidden;
+      font-size: 1em;
+      cursor: pointer;
+      border: none;
+      letter-spacing: 0.5px;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 12px 40px rgba(59, 130, 246, 0.25);
+    }
+
+    .btn:active {
+      transform: translateY(-1px) scale(1.02);
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      transition: left 0.6s;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #1d4ed8 100%);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .btn-ghost {
+      background: rgba(255,255,255,0.9);
+      color: #3b82f6;
+      border: 2px solid #3b82f6;
+      backdrop-filter: blur(10px);
+    }
+
+    .card {
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(59, 130, 246, 0.1);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      max-width: 500px;
+      width: 100%;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #3b82f6, #06b6d4, #3b82f6);
+      background-size: 200% 100%;
+      animation: shimmer 3s ease-in-out infinite;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 25px 50px rgba(59, 130, 246, 0.2), 0 8px 16px rgba(0, 0, 0, 0.1);
+      background: linear-gradient(135deg, #ffffff 0%, #e0f2fe 100%);
+    }
+
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8em;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #1e293b;
+      letter-spacing: -0.01em;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+      position: relative;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 16px 50px 16px 16px;
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      font-size: 1em;
+      transition: border-color 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    .password-toggle {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2em;
+      color: #6b7280;
+      padding: 0;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .password-toggle:hover {
+      color: #374151;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      animation: inputGlow 0.3s ease-out;
+    }
+
+    @keyframes inputGlow {
+      0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.1); }
+      100% { box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
+    }
+
+    .form-group input:valid {
+      border-color: #10b981;
+    }
+
+    .form-group input:invalid:not(:placeholder-shown) {
+      border-color: #ef4444;
+      animation: shake 0.5s ease-in-out;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 30px;
+    }
+
+    .link {
+      color: #3b82f6;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .link:hover {
+      color: #1d4ed8;
+    }
+
+    .err {
+      color: #dc2626;
+      margin-top: 16px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        padding: 30px 20px;
+      }
+      h2 {
+        font-size: 2.2em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="brand">
+    <svg width="44" height="44" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="g1" x1="0" x2="1">
+          <stop offset="0" stop-color="#06b6d4"/>
+          <stop offset="1" stop-color="#2563eb"/>
+        </linearGradient>
+      </defs>
+      <circle cx="12" cy="12" r="10" fill="url(#g1)"></circle>
+      <text x="12" y="16" text-anchor="middle" font-size="10" fill="white" font-family="Inter, Arial, Helvetica, sans-serif">K</text>
+    </svg>
+    <div class="brand-text">
+      <span class="app-name">KANNECT</span>
+      <small class="tagline">Connect. Learn. Collaborate.</small>
+    </div>
+  </a>
+  <div class="floating-elements">
+    <div class="floating-element">🔐</div>
+    <div class="floating-element">🎓</div>
+    <div class="floating-element">💬</div>
+  </div>
+
+  <main class="container">
+    <form class="card" onsubmit="return false;">
+      <h2>🔑 Login to KANNECT</h2>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" type="email" required />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" type="password" required />
+        <button type="button" class="password-toggle" id="togglePassword" aria-label="Toggle password visibility">👁️</button>
+      </div>
+      <div class="stack">
+        <button id="login" class="btn btn-primary">🚀 Login</button>
+        <a href="register.html" class="link">✨ Don't have an account? Register</a>
+        <a href="index.html" class="btn btn-ghost">🏠 Home</a>
+      </div>
+      <div class="err" id="err"></div>
+    </form>
+  </main>
+
+  <script>
+    document.getElementById('togglePassword').addEventListener('click', () => {
+      const passwordInput = document.getElementById('password');
+      const toggleButton = document.getElementById('togglePassword');
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleButton.textContent = '🙈';
+      } else {
+        passwordInput.type = 'password';
+        toggleButton.textContent = '👁️';
+      }
+    });
+
+    document.getElementById('login').addEventListener('click', async () => {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      document.getElementById('err').textContent = '';
+      try {
+        const res = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+        const data = await res.json();
+        if (!res.ok) throw data;
+        localStorage.setItem('chat_token', data.token);
+        localStorage.setItem('chat_user', JSON.stringify(data.user));
+        location.href = 'dashboard.html';
+      } catch (e) {
+        document.getElementById('err').textContent = e.error || JSON.stringify(e);
+      }
+    });
+  </script>
+</body>
+</html>

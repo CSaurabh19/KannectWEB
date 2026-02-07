@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KANNECT User Flow Overview</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #274168;
+      --secondary-color: #ecf2fc;
+      --accent-color: #7897c3;
+      --section-bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border-radius: 14px;
+      --box-shadow: 0 2px 8px rgba(20, 40, 80, 0.08);
+      --font-family: 'Inter', Arial, Helvetica, sans-serif;
+      --heading-weight: 600;
+    }
+    body {
+      margin: 0;
+      font-family: var(--font-family);
+      background: var(--secondary-color);
+      color: var(--primary-color);
+    }
+    header {
+      background: var(--primary-color);
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem 1.2rem 1rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--box-shadow);
+    }
+    header h1 {
+      margin: 0;
+      font-weight: var(--heading-weight);
+      font-size: 2.4rem;
+      letter-spacing: 0.02em;
+    }
+    header p {
+      margin: 16px auto 0 auto;
+      font-size: 1.25rem;
+      max-width: 620px;
+      opacity: 0.85;
+    }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem 1.5rem;
+    }
+    section {
+      background: var(--section-bg);
+      margin-bottom: 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: 2rem 1.6rem 1.2rem 1.6rem;
+    }
+    section h2 {
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      font-weight: var(--heading-weight);
+      margin-top: 0;
+      margin-bottom: 0.7em;
+      border-left: 4px solid var(--accent-color);
+      padding-left: 0.6em;
+      letter-spacing: 0.015em;
+    }
+    ul, ol {
+      padding-left: 1.2em;
+    }
+    .flow-diagram {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: 1.1rem 1rem;
+      min-width: 220px;
+      flex: 1 1 220px;
+      margin: 0.3rem 0;
+    }
+    .card h3 {
+      font-size: 1.07rem;
+      margin: 0 0 0.52em 0;
+      color: var(--accent-color);
+      font-weight: var(--heading-weight);
+    }
+    .pill {
+      background: var(--accent-color);
+      color: #fff;
+      border-radius: 16px;
+      padding: 0.13em 0.8em;
+      font-size: 0.95em;
+      display: inline-block;
+      margin-right: 0.7em;
+      font-weight: var(--heading-weight);
+      letter-spacing: 0.03em;
+      margin-bottom: 0.4em;
+    }
+    @media (max-width: 660px) {
+      header h1 {
+        font-size: 1.45rem;
+      }
+      main {
+        padding: 0 .5rem 2rem .5rem;
+      }
+      section {
+        padding: 1rem .7rem .6rem .7rem;
+      }
+      .flow-diagram {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>KANNECT User Journey</h1>
+    <p>
+      Welcome to KANNECT—an intuitive platform fostering effective communication between students and faculty. This page guides you through the user flow, highlighting key steps, role-based experiences, core dashboard features, messaging, accessibility & security guarantees.
+    </p>
+  </header>
+  <main>
+    <section>
+      <h2>User Landing Overview</h2>
+      <ul>
+        <li>New and returning users arrive at the KANNECT homepage via direct link or invite.</li>
+        <li>Clear call-to-action buttons guide users to Register or Login.</li>
+        <li>Quick highlights on platform benefits and guidance for account creation.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>User Onboarding &amp; Account Creation</h2>
+      <ol>
+        <li>User selects 'Register' and chooses their role (Student or Faculty).</li>
+        <li>Simple registration form collects essential details: name, email, role, and affiliation.</li>
+        <li>Platform presents accessible instructions at every step for a smooth onboarding experience.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>New User Registration Process</h2>
+      <div class="flow-diagram">
+        <div class="card">
+          <span class="pill">Step 1</span>
+          <h3>Data Collection</h3>
+          <p>Basic information is gathered for account setup and role verification (name, email, role, institute).</p>
+        </div>
+        <div class="card">
+          <span class="pill">Step 2</span>
+          <h3>Email Verification</h3>
+          <p>User receives a secure email with a verification link to confirm their identity and activate their account.</p>
+        </div>
+        <div class="card">
+          <span class="pill">Step 3</span>
+          <h3>Role Assignment</h3>
+          <p>Platform validates the chosen role (Student or Faculty) and applies suitable access controls automatically.</p>
+        </div>
+        <div class="card">
+          <span class="pill">Step 4</span>
+          <h3>Account Creation</h3>
+          <p>Successful verification grants access; user is guided to personalized dashboard based on their role.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Role-Based Access Control</h2>
+      <div class="flow-diagram">
+        <div class="card">
+          <h3>Student</h3>
+          <ul>
+            <li>Access relevant learning resources and communication channels.</li>
+            <li>Dashboard displays assignments, notifications, and direct faculty messaging.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Faculty</h3>
+          <ul>
+            <li>Access course management, analytics, and messaging tools tailored for faculty tasks.</li>
+            <li>Can send announcements, provide feedback, and initiate discussions.</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top:1em;"><strong>Note:</strong> Role assignment safeguards privacy and maintains secure boundaries between user groups.</p>
+    </section>
+
+    <section>
+      <h2>User Authentication Flow</h2>
+      <ol>
+        <li>User logs in with verified email and password.</li>
+        <li>Credentials are securely validated. Multi-factor authentication (if enabled) for enhanced security.</li>
+        <li>Upon success, user is redirected to their personalized dashboard based on assigned role.</li>
+        <li>Session control prevents unauthorized access and supports secure log out.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Dashboard Features</h2>
+      <div class="flow-diagram">
+        <div class="card">
+          <h3>Content &amp; Guidance</h3>
+          <p>Personalized modules, assignments, resources, and guidance appear upfront for each user.</p>
+        </div>
+        <div class="card">
+          <h3>Communication Tools</h3>
+          <p>Integrated chat, announcements, and feedback systems facilitate timely exchange.</p>
+        </div>
+      </div>
+      <ul style="margin-top:1em;">
+        <li>Simple menus and content cards ensure easy navigation.</li>
+        <li>Real-time notifications help users stay updated.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Messaging &amp; Notification System</h2>
+      <ul>
+        <li><strong>Real-Time Updates:</strong> Users receive instant alerts about assignments, messages, and platform activity.</li>
+        <li><strong>Role-Based Messaging:</strong> Students connect directly to faculty; faculty can initiate group or personal messages.</li>
+        <li>Secure, easy-to-use chat interface supports attachments and questions.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Accessibility &amp; Security Features</h2>
+      <ul>
+        <li>WCAG-compliant design—clear contrast, scalable text, keyboard navigation, and screen-reader compatibility.</li>
+        <li>Data encryption, secure APIs, and robust authentication protocols safeguard all user information.</li>
+        <li>Privacy-first approach: users manage their own profile and notification settings.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Seamless User Experience</h2>
+      <ul>
+        <li>Intuitive navigation—logical menu structure and clear section headings.</li>
+        <li>Minimalist interface—subtle colors and simple layouts keep focus on content.</li>
+        <li>Immediate feedback for every user action (registration, login, messaging).</li>
+        <li>All flows use plain language and context-sensitive help for clarity.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

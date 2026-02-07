@@ -1,0 +1,105 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  background: #f5f7fa;
+  color: #232b34;
+}
+.app-container {
+  max-width: 540px;
+  margin: 3.5rem auto 0 auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 18px 0 rgba(39,65,104,.07), 0 0.5px 2.5px 0 rgba(39,65,104,.10);
+  padding: 2.5rem 2rem;
+}
+h1, h2 {
+  color: #274168;
+  font-weight: 600;
+  margin-bottom: 0.85rem;
+  letter-spacing: .02em;
+}
+h1 {
+  font-size: 2.1rem;
+  text-align: center;
+  margin-bottom: 1.7rem;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+input, select, button {
+  font-size: 1rem;
+  padding: 0.65em 0.7em;
+  border-radius: 8px;
+  border: 1.5px solid #e3edf8;
+  background: #f9fafc;
+}
+input:focus, select:focus, button:focus {
+  outline: none;
+  border-color: #7897c3;
+  background: #eaf2ff;
+}
+button {
+  background: #274168;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  transition: background 0.18s;
+  cursor: pointer;
+  margin-bottom: .25em;
+}
+button:disabled {
+  background: #b2bcce;
+  cursor: not-allowed;
+}
+[role="alert"] {
+  background: #ffe6e6;
+  color: #b80041;
+  font-size: 0.96rem;
+  border-radius: 7px;
+  padding: 0.6em 0.8em;
+}
+.switch-btn {
+  background: #eef2fa;
+  color: #274168;
+  border: 1px solid #dde6f6;
+  font-size: 1rem;
+  padding: 0.5em 0.8em;
+  border-radius: 8px;
+  margin-top: 0.2em;
+}
+.dashboard, .messaging {
+  background: #f7f9fc;
+  border-radius: 12px;
+  padding: 1.3rem 1rem 1rem 1rem;
+  margin: 2rem 0 0.7rem 0;
+  box-shadow: 0 2px 10px 0 rgba(39,65,104,.04);
+}
+.dashboard h2, .messaging h3 {
+  color: #274168;
+  margin-bottom: 0.75rem;
+}
+pre {
+  background: #eff4fb;
+  border-radius: 8px;
+  padding: 1em;
+  font-size: .95rem;
+  color: #2457a6;
+  overflow-x: auto;
+}
+@media (max-width: 700px) {
+  .app-container {
+    padding: 1.2rem 0.4rem;
+    max-width: 95vw;
+  }
+  h1 {
+    font-size: 1.2rem;
+    margin-bottom: 1.1rem;
+  }
+  .dashboard, .messaging {
+    padding: 1rem 0.3rem 0.6rem 0.3rem;
+    margin: 1.2rem 0 0.3rem 0;
+  }
+}
